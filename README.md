@@ -1,7 +1,7 @@
 # factor_graph_algorithm
 This is our enhanced version of the factor gragh algorithm based on the explainbn package from J. Sevilla.
 
-With some evidence and a query node, the algorithm can generate arguments. Besides, the outcomes contain explanation in words for arguments. Here is an example of given Quinn as evidence, we would like to know the influence on Spider in the Bayesian Belief Network: The Spider Network.
+Given some evidence and a query node, the algorithm can generate arguments. Additionally, the outcomes contain explanation in words for arguments. Here is an example of given Quinn, Emerson and Sawyer as evidence, we would like to know the influence on Spider in the Bayesian Belief Network: The Spider Network.
 
 ```python
 from explainbn.arguments import all_local_arguments
@@ -11,7 +11,7 @@ reader = XMLBIFReader("spider.xml")
 model = reader.get_model()
 
 target = ('Spider','False')
-evidence = {'Quinns':'False'}
+evidence = {'Quinns':'False', 'Emersons':'False', 'Sawyer':'True'}
 
 
 # Find all arguments
@@ -19,18 +19,30 @@ arguments = all_local_arguments(model, target, evidence)
 
 # Generate a textual explanation of each argument
 for argument in arguments:
-  explanation = explain_argument(model, argument)
+  explanation = explain_argument(model, argument,evidence)
   print(explanation)
   print("")
 ```
 
 ```
-We have observed that Quinns is False.
-That Quinns is False is evidence that Spider is True (weak 0.10008343850685929 inference).
+We have observed that Emersons is False.
+That Emersons is False is evidence that Spider is False (strong inference).
 
 We have observed that Quinns is False.
-That Quinns is False is evidence that Both is False or Both is True (certain inf inference).
-That Both is False or Both is True is evidence that Spider is False or Spider is True (certain inf inference).
+That Quinns is False is evidence that Spider is False (strong inference).
+
+We have observed that Quinns is False.
+That Quinns is False is evidence that Both is False (strong inference).
+That Both is False is evidence that Spider is False or Spider is True (equal effect inference).
+Because Spider and Both are d-separated, this argument alone cannot influence the target node.
+
+We have observed that Emersons is False.
+That Emersons is False is evidence that Both is False (strong inference).
+That Both is False is evidence that Spider is False or Spider is True (equal effect inference).
+Because Spider and Both are d-separated, this argument alone cannot influence the target node.
+
+We have observed that Sawyer is True.
+That Sawyer is True is evidence that Spider is True (strong inference).
 ```
 
-There are two arguments: The first one is the direct influence from Quinn to Spider, while the second one is the influence from Quinn via Both to Spider. 
+For more information, please refer to our papers available at the following link:
