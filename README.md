@@ -3,7 +3,7 @@ This is our enhanced version of the factor gragh algorithm based on the explainb
 
 With some evidence and a query node, the algorithm can generate arguments. Besides, the outcomes contain explanation in words for arguments. Here is an example of given Quinn as evidence, we would like to know the influence on Spider in the Bayesian Belief Network: The Spider Network.
 
-```ruby
+```python
 from explainbn.arguments import all_local_arguments
 from explainbn.explanations import explain_argument
 from pgmpy.readwrite import XMLBIFReader
