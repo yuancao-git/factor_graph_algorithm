@@ -32,3 +32,5 @@ We have observed that Quinns is False.
 That Quinns is False is evidence that Both is False or Both is True (certain inf inference).
 That Both is False or Both is True is evidence that Spider is False or Spider is True (certain inf inference).
 ```
+
+There are two arguments: The first one is the direct influence from Quinn to Spider, while the second one is the influence from Quinn via Both to Spider. 
