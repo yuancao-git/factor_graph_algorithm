@@ -1,5 +1,5 @@
 # factor_graph_algorithm
-This is our enhanced version of the factor gragh algorithm based on the explainbn package from J. Sevilla.
+This is our enhanced version of the factor gragh algorithm based on the explainbn package from J. Sevilla (https://gitlab.nl4xai.eu/jaime.sevilla/explainbn/-/tree/main).
 
 Given some evidence and a query node, the algorithm can generate arguments. Additionally, the outcomes contain explanation in words for arguments. Here is an example of given Quinn, Emerson and Sawyer as evidence, we would like to know the influence on Spider in the Bayesian Belief Network: The Spider Network.
 
